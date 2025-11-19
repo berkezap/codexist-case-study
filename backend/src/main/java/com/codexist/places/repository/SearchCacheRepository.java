@@ -17,3 +17,4 @@ public interface SearchCacheRepository extends JpaRepository<SearchCache, Long> 
                                          @Param("radius") Integer radius);
 }
 
+
