@@ -50,6 +50,56 @@ mvn spring-boot:run
 
 Backend runs on http://localhost:8070
 
+### Frontend Setup
+
+```bash
+cd frontend
+npm install
+
+# Create .env file
+echo "REACT_APP_BACKEND_URL=http://localhost:8070" > .env
+echo "REACT_APP_GOOGLE_MAPS_API_KEY=your_api_key" >> .env
+
+npm start
+```
+
+Frontend runs on http://localhost:3000
+
+## Deployment
+
+### Live Application
+
+- **Frontend:** [https://codexist-case-study.vercel.app/](https://codexist-case-study.vercel.app/)
+- **Backend API:** [https://codexist-case-study-g2by.onrender.com](https://codexist-case-study-g2by.onrender.com)
+- **API Endpoint:** `GET /api/places/nearby?latitude=X&longitude=Y&radius=Z`
+
+### GitHub Repository
+
+- **Source Code:** [https://github.com/berkezap/codexist-case-study](https://github.com/berkezap/codexist-case-study)
+- **Commits:** 7 commits (work-process documented)
+
+### Deployment Platforms
+
+- **Backend:** Render (Docker)
+- **Frontend:** Vercel
+
+## API Documentation
+
+### GET /api/places/nearby
+
+Search nearby places using Google Places API.
+
+**Query Parameters:**
+- `latitude` (required): Decimal number (-90 to 90)
+- `longitude` (required): Decimal number (-180 to 180)
+- `radius` (required): Integer in meters
+
+**Example:**
+```
+GET /api/places/nearby?latitude=41.0082&longitude=28.9784&radius=1000
+```
+
+**Response:** JSON format (Google Places API response)
 
 ## How It Works
 
