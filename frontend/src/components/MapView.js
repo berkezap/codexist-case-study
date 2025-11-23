@@ -21,7 +21,7 @@ function MapView({ center, places }) {
           <Marker
             position={center}
             icon={{
-              url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+              url: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'
             }}
           />
 
