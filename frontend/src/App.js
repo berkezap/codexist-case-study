@@ -50,7 +50,7 @@ function App() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Google Places Nearby Search</h1>
+          <h1>Nearby Places Search</h1>
         </header>
         <div className="container">
           <div className="error-message">
@@ -65,15 +65,20 @@ function App() {
     <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
       <div className="App">
         <header className="App-header">
-          <h1>Google Places Nearby Search</h1>
+          <h1>Nearby Places Search</h1>
         </header>
         
         <div className="container">
           <SearchForm onSearch={handleSearch} loading={loading} />
           
-          {error && <div className="error-message">{error}</div>}
-          
-          {loading && <div className="loading">Searching...</div>}
+        {error && <div className="error-message">{error}</div>}
+        
+        {loading && (
+          <div className="loading">
+            <div className="spinner"></div>
+            <span>Searching nearby places...</span>
+          </div>
+        )}
           
           {results.length > 0 && (
             <div className="results-container">
@@ -85,6 +90,18 @@ function App() {
             </div>
           )}
         </div>
+        
+        <footer className="footer">
+          <p>Developed by Berke Özşap</p>
+          <div>
+            <a href="https://github.com/berkezap/codexist-case-study" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+            <a href="https://github.com/berkezap" target="_blank" rel="noopener noreferrer">
+              Profile
+            </a>
+          </div>
+        </footer>
       </div>
     </LoadScript>
   );

@@ -17,13 +17,22 @@ function ResultsList({ results }) {
             )}
             {place.types && (
               <p className="types">
-                {place.types.slice(0, 3).join(', ')}
+                {place.types
+                  .filter(type => !['point_of_interest', 'establishment', 'political'].includes(type))
+                  .slice(0, 2)
+                  .map(type => {
+                    if (type === 'lodging') return 'Hotel';
+                    if (type === 'tourist_attraction') return 'Tourist Spot';
+                    return type.replace(/_/g, ' ');
+                  })
+                  .join(' • ')}
               </p>
             )}
-            {place.business_status && (
-              <span className={`status ${place.business_status.toLowerCase()}`}>
-                {place.business_status}
-              </span>
+            {place.business_status === 'OPERATIONAL' && (
+              <span className="status operational">✓ Open</span>
+            )}
+            {place.business_status === 'CLOSED_TEMPORARILY' && (
+              <span className="status closed_temporarily">🔒 Temporarily Closed</span>
             )}
           </div>
         ))}

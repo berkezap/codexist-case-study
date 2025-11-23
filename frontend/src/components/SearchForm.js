@@ -6,6 +6,19 @@ function SearchForm({ onSearch, loading }) {
   const [longitude, setLongitude] = useState('28.9784');
   const [radius, setRadius] = useState('1000');
 
+  const quickLocations = [
+    { name: '🇹🇷 Istanbul', lat: '41.0082', lng: '28.9784' },
+    { name: '🇺🇸 New York', lat: '40.7580', lng: '-73.9855' },
+    { name: '🇯🇵 Tokyo', lat: '35.6762', lng: '139.6503' },
+    { name: '🇫🇷 Paris', lat: '48.8566', lng: '2.3522' },
+    { name: '🇬🇧 London', lat: '51.5074', lng: '-0.1278' },
+  ];
+
+  const handleQuickLocation = (location) => {
+    setLatitude(location.lat);
+    setLongitude(location.lng);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -46,7 +59,7 @@ function SearchForm({ onSearch, loading }) {
           step="any"
           value={latitude}
           onChange={(e) => setLatitude(e.target.value)}
-          placeholder="e.g. 41.0082"
+          placeholder="e.g. 41.0082 (Istanbul)"
           required
         />
       </div>
@@ -59,7 +72,7 @@ function SearchForm({ onSearch, loading }) {
           step="any"
           value={longitude}
           onChange={(e) => setLongitude(e.target.value)}
-          placeholder="e.g. 28.9784"
+          placeholder="e.g. 28.9784 (Istanbul)"
           required
         />
       </div>
@@ -71,7 +84,7 @@ function SearchForm({ onSearch, loading }) {
           id="radius"
           value={radius}
           onChange={(e) => setRadius(e.target.value)}
-          placeholder="e.g. 1000"
+          placeholder="e.g. 1000 (1 km)"
           required
         />
       </div>
@@ -79,6 +92,22 @@ function SearchForm({ onSearch, loading }) {
       <button type="submit" disabled={loading}>
         {loading ? 'Searching...' : 'Search'}
       </button>
+      
+      <div className="quick-locations-container">
+        <span className="quick-label">Quick locations:</span>
+        <div className="quick-locations">
+          {quickLocations.map((location, index) => (
+            <button
+              key={index}
+              type="button"
+              className="quick-location-btn"
+              onClick={() => handleQuickLocation(location)}
+            >
+              {location.name}
+            </button>
+          ))}
+        </div>
+      </div>
     </form>
   );
 }

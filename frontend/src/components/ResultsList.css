@@ -51,29 +51,29 @@
 }
 
 .place-card .types {
-  color: #888;
-  font-size: 0.9em;
-  margin: 10px 0;
-  font-style: italic;
+  color: #666;
+  font-size: 0.85em;
+  margin: 8px 0;
+  text-transform: capitalize;
 }
 
 .place-card .status {
   display: inline-block;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 0.8em;
-  font-weight: 600;
-  margin-top: 10px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75em;
+  font-weight: 500;
+  margin-top: 8px;
 }
 
 .place-card .status.operational {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #e8f5e9;
+  color: #2e7d32;
 }
 
 .place-card .status.closed_temporarily {
-  background-color: #ff9800;
-  color: white;
+  background-color: #fff3e0;
+  color: #e65100;
 }
 
 @media (max-width: 768px) {
