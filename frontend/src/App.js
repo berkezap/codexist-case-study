@@ -6,7 +6,8 @@ import MapView from './components/MapView';
 import axios from 'axios';
 import { LoadScript } from '@react-google-maps/api';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8070';
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 
+  (window.location.hostname === 'localhost' ? 'http://localhost:8070' : 'https://codexist-case-study-g2by.onrender.com');
 const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 function App() {
